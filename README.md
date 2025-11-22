@@ -102,7 +102,9 @@ The system will auto-download required models on first run:
 ### Setting Up Known Faces
 
 Create the directory structure and add sample images:
-data/data_training_tools use trainingfaceimagecapture.py to take photos for the knownfaces folder
+
+Within data/data_training_tools use the program trainingfaceimagecapture.py to take photos for the knownfaces folder
+
 ```bash
 mkdir -p data/knownfaces/alice
 mkdir -p data/knownfaces/bob
