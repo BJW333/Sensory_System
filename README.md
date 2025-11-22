@@ -1,6 +1,6 @@
 # Sensory System
 
-A comprehensive, real-time monitoring system that combines computer vision, facial recognition, activity detection, and app usage tracking to build a contextual understanding of user behavior.
+A comprehensive, real-time monitoring system that combines computer vision, facial recognition, activity detection, and app usage tracking to build a unified context. This context can then be passed to an AI system so it can understand whats happening in the real world environment around the user.
 
 ## Overview
 
