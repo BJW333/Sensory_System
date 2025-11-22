@@ -123,14 +123,17 @@ import time
 
 # Start the sensor hub
 hub = start_sensor_hub(
-    camera_index=0,           # Default camera
+    #You can manually set the camera index or let the system figure it out itself
+    #camera_index=0,           # Default camera
     debug=False,              # Set True for visualization windows
     console_interval=2.0      # Print context every 2 seconds
 )
 
 # Setup graceful shutdown
-signal.signal(signal.SIGINT, lambda *_: hub.stop() or sys.exit(0))
-signal.signal(signal.SIGTERM, lambda *_: hub.stop() or sys.exit(0))
+#signal.signal(signal.SIGINT,  lambda *_: hub.stop() or sys.exit(0)) #old line for shutting down the system
+#signal.signal(signal.SIGTERM, lambda *_: hub.stop() or sys.exit(0)) #old line for shutting down the system
+signal.signal(signal.SIGINT, safe_shutdown)
+signal.signal(signal.SIGTERM, safe_shutdown)
 
 try:
     while not hub.any_dead():
@@ -257,7 +260,7 @@ responder = NaturalResponder(
     log_file="context_log.csv",
     max_log_size=50_000_000,      # 50MB before rotation
     privacy_mode=False,           # Set True to anonymize logs
-    speak_fn=my_tts_function,
+    speak_fn=my_tts_function, #this is basiclly where you want the proactive outputs to go to. 
 )
 ```
 
@@ -415,6 +418,15 @@ def handle_arrivals(key, old_value, new_value):
 
 CONTEXT.register_callback(handle_arrivals)
 ```
+
+## Contributors
+
+Thanks to all the people who contributed to this project!
+
+<a href="https://github.com/BJW333/Sensory_System/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BJW333/Sensory_System" />
+</a>
+
 
 ## License & Contributing
 
